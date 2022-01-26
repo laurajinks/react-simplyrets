@@ -45,8 +45,8 @@ export const Listing = ({listing, toggleFavorite}) => {
   const handleClick = () => toggleFavorite(listing.listingId, !favorited)
 
   return (
-<div className={classes.listingContainer}>
-  <div className={classes.icon} onClick={handleClick}>{favorited ? <FavoriteIcon /> : <UnfavoriteIcon />}</div>
+<div className={classes.listingContainer} data-cy="listing">
+  <div data-cy="listing-icon" className={classes.icon} onClick={handleClick}>{favorited ? <FavoriteIcon /> : <UnfavoriteIcon />}</div>
   <img src={listing.photos[0]} alt={listing.listingId} className={classes.image}/>
   <div className={classes.textContainer}>
     <Typography>{property.bedrooms} BR | {(property.bathsFull || 0) + (.5 * (property.bathsHalf || 0))} Bath | {property.area}Sq FT</Typography>

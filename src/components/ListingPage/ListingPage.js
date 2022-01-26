@@ -49,7 +49,7 @@ export const ListingPage = () => {
     <Layout title='Property Listings'>
       <div className={classes.container}>
         {isLoading ? <CircularProgress /> : (
-          <div className={classes.listings}>
+          <div className={classes.listings} data-cy="listing-container">
             {(listings || []).map(listing => <Listing key={listing.listingId} {...{listing, toggleFavorite}} />)}
           </div>
         )}

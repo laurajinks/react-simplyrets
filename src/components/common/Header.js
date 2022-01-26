@@ -17,7 +17,7 @@ export const Header = ({title}) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.headerContainer}>
+    <div data-cy="header" className={classes.headerContainer}>
       {title}
     </div>
   )
