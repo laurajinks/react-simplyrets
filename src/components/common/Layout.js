@@ -4,7 +4,7 @@ import {Header} from './Header'
 
 const useStyles = makeStyles((theme) => ({
   children: {
-    padding: `0 ${theme.spacing(2)}`
+    padding: `${theme.spacing(8)} ${theme.spacing(2)} 0`
   }
 }));
 

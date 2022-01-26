@@ -4,10 +4,12 @@ import {makeStyles} from '@mui/styles'
 const useStyles = makeStyles((theme) => ({
   headerContainer: {
     background: `#dedede`,
-    position: '-webkit-sticky',
-    position: 'sticky',
+    position: 'fixed',
+    top: 0,
+    width: '100%',
     padding: theme.spacing(2),
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
+    zIndex: 2
   }
 }));
 
