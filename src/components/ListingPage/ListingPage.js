@@ -4,15 +4,19 @@ import {Layout} from '../common'
 import {useQuery} from 'react-query'
 import axios from 'axios'
 import CircularProgress from '@mui/material/CircularProgress';
+import {Listing} from './Listing'
 
 const useStyles = makeStyles({
-  container: {}
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  }
 });
 
 export const ListingPage = () => {
   const classes = useStyles()
 
-  const { isLoading, error, data, isFetching } = useQuery("listings", async () =>{
+  const { isLoading, data } = useQuery("listings", async () =>{
     const {data} = await axios.get(
       'https://api.simplyrets.com/properties'
     , {
@@ -30,12 +34,13 @@ export const ListingPage = () => {
 
   return (
     <Layout title='Property Listings'>
-<div className={classes.container}>
-  {isLoading ? <CircularProgress /> : (
-ListingPage
-  )}
-      
-    </div>
+      <div className={classes.container}>
+        {isLoading ? <CircularProgress /> : (
+          <>
+            {data.map(listing => <Listing key={listing.listingId} {...{listing}} />)}
+          </>
+        )}
+      </div>
     </Layout>
   )
 }
