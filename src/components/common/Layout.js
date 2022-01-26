@@ -1,16 +1,22 @@
 import React from 'react'
 import {makeStyles} from '@mui/styles'
+import {Header} from './Header'
 
-const useStyles = makeStyles({
-  layoutContainer: {}
-});
+const useStyles = makeStyles((theme) => ({
+  children: {
+    padding: `0 ${theme.spacing(2)}`
+  }
+}));
 
-export const Layout = ({children}) => {
+export const Layout = ({title, children}) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.layoutContainer}>
-      {children}
-    </div>
+    <>
+      <Header {...{title}} />
+      <div className={classes.children}>
+        {children}
+      </div>
+    </>
   )
 }

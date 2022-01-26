@@ -1,14 +1,22 @@
 import React from 'react'
-import {Layout} from './components/common'
 import {ThemeProvider} from '@mui/material'
 import {theme} from './theme'
+import {BrowserRouter, Routes} from "react-router-dom";
+import {routes} from './routes'
+import {QueryClient, QueryClientProvider} from 'react-query'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
     <ThemeProvider {...{theme}}>
-      <Layout>
-        Test
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            {routes}
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
